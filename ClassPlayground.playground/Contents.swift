@@ -51,3 +51,11 @@ d.value = 9
 d.currentValue = 15
 d.roll()
 d.roll()
+
+
+
+var 💩 = "Lucas"
+print(💩)
+
+var lucas =  "💩"
+print(lucas)
