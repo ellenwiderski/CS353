@@ -69,6 +69,13 @@ class ViewController: UIViewController {
         
     }
     
+    @IBAction func clear() {
+        displayValue = 0
+        historyValue = ""
+        brain.clearStack()
+        
+    }
+    
     //property
     var displayValue: Double {
         get {
