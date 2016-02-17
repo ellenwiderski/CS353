@@ -44,6 +44,8 @@ class CalculatorBrain {
         learnOp(Op.BinaryOperation("+", +))
         learnOp(Op.BinaryOperation("-", {$1 - $0}))
         learnOp(Op.UnaryOperation("√", sqrt))
+        learnOp(Op.UnaryOperation("sin(θ)",sin))
+        learnOp(Op.UnaryOperation("cos(θ)",cos))
     }
     
     @nonobjc

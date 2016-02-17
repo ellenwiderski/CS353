@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var history: UILabel!
     
     var userIsInTheMiddleOfTypingANumber = false
 
@@ -27,11 +28,23 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func appendDecimal() {
+        if display.text!.rangeOfString(".") == nil && userIsInTheMiddleOfTypingANumber {
+            display.text = display.text! + "."
+        }
+    }
+    
+    @IBAction func pi() {
+        display.text = "\(M_PI)"
+        enter()
+    }
+    
     @IBAction func operate(sender: UIButton) {
         if userIsInTheMiddleOfTypingANumber {
             enter()
         }
         if let operation = sender.currentTitle {
+            historyValue += operation
             if let result = brain.performOperation(operation) {
                 displayValue = result
             }
@@ -47,9 +60,11 @@ class ViewController: UIViewController {
         userIsInTheMiddleOfTypingANumber = false
         if let result = brain.pushOperand(displayValue) {
             displayValue = result
+            historyValue += "\(result)"
         }
         else {
             displayValue = 0
+            historyValue = ""
         }
         
     }
@@ -61,6 +76,16 @@ class ViewController: UIViewController {
         }
         set {
             display.text = "\(newValue)"
+            userIsInTheMiddleOfTypingANumber = false
+        }
+    }
+    
+    var historyValue: String {
+        get {
+            return history.text!
+        }
+        set {
+            history.text = " \(newValue) "
             userIsInTheMiddleOfTypingANumber = false
         }
     }

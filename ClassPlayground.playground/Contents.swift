@@ -53,9 +53,26 @@ d.roll()
 d.roll()
 
 
+enum Year {
+    case FirstYear(dorm: String, numCredits: Int)
+    case Sophomore
+    case Junior(dorm: String, numCredits: Int, internship: String)
+    case Senior
+}
 
-var 💩 = "Lucas"
-print(💩)
+func foo(x:Year) {
+    switch x {
+    case .FirstYear:
+        print("new student")
+    case .Sophomore:
+        print("second")
+    case .Junior(_,_,let intern):
+        print(intern)
+        print("hello world")
+    case .Senior:
+        print("more than 3 years")
+    }
+}
 
-var lucas =  "💩"
-print(lucas)
+var y = Year.Junior(dorm:"Miller",numCredits:48,internship:"Hormel")
+foo(y)
