@@ -11,12 +11,12 @@ import Foundation
 class MSDie {
     var numSides: Int
     private var currentValue: Int
-    var isFrozen: Bool
+    var frozen: Bool
     
     init (numSides: Int) {
         self.numSides = numSides
         currentValue = random() % numSides + 1
-        isFrozen = false
+        self.frozen = false
     }
     
     func roll() -> Int {
@@ -25,7 +25,15 @@ class MSDie {
     }
     
     func freeze() {
-        isFrozen = true
+        self.frozen = true
+    }
+    
+    func unfreeze() {
+        self.frozen = false
+    }
+    
+    func isFrozen() -> Bool {
+        return self.frozen
     }
     
     var value: Int {
@@ -59,13 +67,30 @@ class Cup {
     }
     
     func shake() {
+        print("Frozen Dice:")
         for d in myDice {
-            d.roll()
+            print(!d.isFrozen())
+            if !d.isFrozen() {
+                d.roll()
+            }
         }
     }
     
     func getDie(idx:Int) -> Int {
         return myDice[idx].currentValue
+    }
+    
+    func getDice() -> [MSDie] {
+        return myDice
+    }
+    
+    func freezeDie(idx:Int) {
+        print(idx)
+        myDice[idx].freeze()
+    }
+    
+    func unfreezeDie(idx:Int) {
+        myDice[idx].unfreeze()
     }
     
 }

@@ -18,25 +18,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gua-as-uIc">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gua-as-uIc">
                                 <rect key="frame" x="28" y="60" width="102" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="⚀"/>
+                                <connections>
+                                    <action selector="freeze:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BSd-h0-85c"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-Iz-R9W">
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FG2-Iz-R9W">
                                 <rect key="frame" x="138" y="60" width="103" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="⚀"/>
+                                <connections>
+                                    <action selector="freeze:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V8R-mG-iS4"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-X9-AeG">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DF-X9-AeG">
                                 <rect key="frame" x="359" y="60" width="103" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="⚀"/>
+                                <connections>
+                                    <action selector="freeze:" destination="BYZ-38-t0r" eventType="touchUpInside" id="i2p-aj-Rq0"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-ez-G0i">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ae-ez-G0i">
                                 <rect key="frame" x="470" y="60" width="102" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
                                 <state key="normal" title="⚀"/>
+                                <connections>
+                                    <action selector="freeze:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ESM-AI-wn0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="-1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GdE-hs-xFy">
                                 <rect key="frame" x="261" y="274" width="78" height="51"/>
@@ -46,10 +58,15 @@
                                     <action selector="roll" destination="BYZ-38-t0r" eventType="touchUpInside" id="v3G-uH-Cxq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPK-sU-d1l">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPK-sU-d1l">
                                 <rect key="frame" x="249" y="60" width="102" height="70"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="48"/>
-                                <state key="normal" title="⚀"/>
+                                <state key="normal" title="⚀">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="freeze:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7iW-Yg-whV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -78,11 +95,12 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="die1" destination="gua-as-uIc" id="9kh-Ne-fra"/>
-                        <outlet property="die2" destination="FG2-Iz-R9W" id="Ruv-XM-pPl"/>
-                        <outlet property="die3" destination="bPK-sU-d1l" id="je1-1i-Lyg"/>
-                        <outlet property="die4" destination="5DF-X9-AeG" id="U4A-kS-3w0"/>
-                        <outlet property="die5" destination="5ae-ez-G0i" id="K2Q-6R-c8Y"/>
+                        <outletCollection property="dieCollection" destination="5DF-X9-AeG" collectionClass="NSMutableArray" id="z1f-Gv-3vM"/>
+                        <outletCollection property="dieCollection" destination="gua-as-uIc" collectionClass="NSMutableArray" id="OKW-Gc-gwI"/>
+                        <outletCollection property="dieCollection" destination="FG2-Iz-R9W" collectionClass="NSMutableArray" id="fHM-P5-eDw"/>
+                        <outletCollection property="dieCollection" destination="bPK-sU-d1l" collectionClass="NSMutableArray" id="FUL-hL-MfC"/>
+                        <outletCollection property="dieCollection" destination="5DF-X9-AeG" collectionClass="NSMutableArray" id="cjO-oX-PfJ"/>
+                        <outletCollection property="dieCollection" destination="5ae-ez-G0i" collectionClass="NSMutableArray" id="RMn-CV-H04"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
