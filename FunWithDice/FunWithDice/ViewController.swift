@@ -16,16 +16,18 @@ class ViewController: UIViewController {
     
     
     @IBAction func roll() {
-        myCup.shake()
-        for i in 1..<6 {
-            if let diceVal = diceDict[myCup.getDie(i)] {
-                dieCollection[i].setTitle(diceVal, forState: .Normal)
+        for _ in 0...20 {
+            self.myCup.shake()
+            for i in 1..<6 {
+                if let diceVal = self.diceDict[self.myCup[i].value] {
+                    self.dieCollection[i].setTitle(diceVal, forState: .Normal)
+                }
             }
         }
     }
     
     @IBAction func freeze(sender: UIButton) {
-        if (myCup.getDice()[sender.tag].isFrozen()) {
+        if (myCup[sender.tag].isFrozen()) {
             myCup.unfreezeDie(sender.tag)
             dieCollection[sender.tag].setTitleColor(UIColor(red: 0, green: 122/255, blue: 1, alpha: 1), forState: .Normal)
         }

@@ -58,31 +58,41 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        if let result = brain.pushOperand(displayValue) {
-            displayValue = result
-            historyValue += "\(result)"
+        if let dval = displayValue {
+            if let result = brain.pushOperand(dval) {
+                displayValue = result
+                historyValue += "\(result)"
+            }
         }
         else {
-            displayValue = 0
+            displayValue = nil
             historyValue = ""
         }
-        
     }
     
     @IBAction func clear() {
         displayValue = 0
         historyValue = ""
         brain.clearStack()
-        
     }
     
     //property
-    var displayValue: Double {
+    var displayValue: Double? {
         get {
-            return NSNumberFormatter().numberFromString(display.text!)!.doubleValue
+            if let dtxt = NSNumberFormatter().numberFromString(display.text!) {
+                return dtxt.doubleValue
+            }
+            else {
+                return nil
+            }
         }
         set {
-            display.text = "\(newValue)"
+            if newValue == nil {
+                display.text = ""
+            }
+            else {
+                display.text = "\(newValue!)"
+            }
             userIsInTheMiddleOfTypingANumber = false
         }
     }

@@ -10,6 +10,12 @@ import XCTest
 @testable import FunWithDice
 
 class FunWithDiceTests: XCTestCase {
+    var myCup: Cup
+    
+    override init() {
+        myCup = Cup(numDice: 5, numSides: 6)
+        super.init()
+    }
     
     override func setUp() {
         super.setUp()
@@ -24,6 +30,9 @@ class FunWithDiceTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        myCup.shake()
+        XCTAssertEqual(myCup[0].value,2)
     }
     
     func testPerformanceExample() {

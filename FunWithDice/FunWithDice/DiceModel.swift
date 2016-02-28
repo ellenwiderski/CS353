@@ -76,12 +76,14 @@ class Cup {
         }
     }
     
-    func getDie(idx:Int) -> Int {
-        return myDice[idx].currentValue
-    }
     
-    func getDice() -> [MSDie] {
-        return myDice
+    subscript(i: Int) -> MSDie {
+        get {
+            return myDice[i]
+        }
+        set {
+            myDice[i]  = newValue
+        }
     }
     
     func freezeDie(idx:Int) {
