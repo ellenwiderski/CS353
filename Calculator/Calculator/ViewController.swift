@@ -17,6 +17,20 @@ class ViewController: UIViewController {
 
     var brain = CalculatorBrain()
     
+    
+    @IBAction func pushM() {
+        brain.pushOperand("M")
+        historyValue += "M"
+    }
+    
+    @IBAction func setM() {
+        brain.variableValues["M"] = displayValue
+        userIsInTheMiddleOfTypingANumber = false
+        if let result = brain.evaluate() {
+            displayValue = result
+        }
+    }
+    
     @IBAction func appendDigit(sender: UIButton) {
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber {
@@ -35,7 +49,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func pi() {
-        display.text = "\(M_PI)"
+        display.text = "π"
         enter()
     }
     
@@ -47,9 +61,10 @@ class ViewController: UIViewController {
             historyValue += operation
             if let result = brain.performOperation(operation) {
                 displayValue = result
+                historyValue = brain.description!
             }
             else {
-                displayValue = 0
+                displayValue = nil
             }
         }
     }
@@ -58,7 +73,14 @@ class ViewController: UIViewController {
     
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
-        if let dval = displayValue {
+        if display.text! == "π" {
+            print("π")
+            if let result = brain.pushOperand() {
+                displayValue = result
+                historyValue += "π"
+            }
+        }
+        else if let dval = displayValue {
             if let result = brain.pushOperand(dval) {
                 displayValue = result
                 historyValue += "\(result)"
@@ -71,7 +93,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func clear() {
-        displayValue = 0
+        displayValue = nil
         historyValue = ""
         brain.clearStack()
     }
@@ -88,7 +110,7 @@ class ViewController: UIViewController {
         }
         set {
             if newValue == nil {
-                display.text = ""
+                display.text = " "
             }
             else {
                 display.text = "\(newValue!)"

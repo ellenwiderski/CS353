@@ -1,15 +1,15 @@
 //
-//  CalculatorTests.swift
-//  CalculatorTests
+//  HappinessTests.swift
+//  HappinessTests
 //
-//  Created by Ellen Widerski on 2/7/16.
-//  Copyright © 2016 Ellen Widerski. All rights reserved.
+//  Created by Ellen Local on 3/1/16.
+//  Copyright © 2016 Ellen Local. All rights reserved.
 //
 
 import XCTest
-@testable import Calculator
+@testable import Happiness
 
-class CalculatorTests: XCTestCase {
+class HappinessTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -24,7 +24,6 @@ class CalculatorTests: XCTestCase {
     func testExample() {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
     }
     
     func testPerformanceExample() {

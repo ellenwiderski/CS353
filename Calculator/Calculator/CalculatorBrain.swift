@@ -13,6 +13,7 @@ class CalculatorBrain {
     private enum Op : CustomStringConvertible {
         case Operand(Double)
         case Variable(String)
+        case Pi()
         case UnaryOperation(String, Double -> Double)
         case BinaryOperation(String, (Double, Double) -> Double)
         
@@ -24,6 +25,9 @@ class CalculatorBrain {
                     
                 case .Variable(let operand):
                     return "\(operand)"
+                
+                case .Pi():
+                    return "π"
                     
                 case .UnaryOperation(let symbol,_):
                     return "\(symbol)"
@@ -37,41 +41,49 @@ class CalculatorBrain {
     
     private var opStack = [Op]()
     private var knownOps = [String:Op]()
-    private var variableValues  = Dictionary<String,Double>()
+    var variableValues  = Dictionary<String,Double>()
     
+
     var description: String? {
         get {
-            var infixStack = [String]()
-            
-            for op in opStack {
-                switch op {
-                case .Operand(_):
-                    infixStack.append(op.description)
-                
-                case .Variable(_):
-                    infixStack.append(op.description)
-                    
-                case .UnaryOperation(let symbol, _):
-                    if infixStack.count >= 1 {
-                        if ["√","sin","cos"].contains(symbol) {
-                            let lastOp = infixStack.popLast()
-                            infixStack.append("(\(symbol)(\(lastOp)))")
-                        }
-                    }
-                
-                case .BinaryOperation(let symbol,_):
-                    if infixStack.count >= 2 {
-                        let op1 = infixStack.popLast()
-                        let op2 = infixStack.popLast()
-                        
-                        infixStack.append("(\(op1) \(symbol) \(op2))")
-                    }
-                }
-            }
-            return infixStack.popLast()
+            let ops = opStack
+            return toInfix(ops).result
         }
     }
 
+    
+    private func toInfix(ops: [Op]) ->  (result: String?, remainingOps: [Op])  {
+        if !ops.isEmpty {
+            var remainingOps = ops
+            let op = remainingOps.removeLast()
+            switch op {
+            case .Operand(let operand):
+                return ("\(operand)",remainingOps)
+                
+            case .Variable(let variable):
+                return (variable,remainingOps)
+                
+            case .Pi():
+                return ("π",remainingOps)
+                
+            case .UnaryOperation(let symbol, _):
+                let operandEvaluation = toInfix(remainingOps)
+                if let operand = operandEvaluation.result {
+                    return ("\(symbol)(\(operand))", operandEvaluation.remainingOps)
+                }
+                
+            case .BinaryOperation(let symbol, _):
+                let op1Evaluation = toInfix(remainingOps)
+                if let operand1 = op1Evaluation.result {
+                    let op2Evaluation = toInfix(op1Evaluation.remainingOps)
+                    if let operand2 = op2Evaluation.result {
+                        return ("(\(operand2)\(symbol)\(operand1))",op2Evaluation.remainingOps)
+                    }
+                }
+            }
+        }
+        return ("",ops)
+    }
     
     init() {
         func learnOp(op:Op) {
@@ -80,7 +92,7 @@ class CalculatorBrain {
         learnOp(Op.BinaryOperation("×", *))
         learnOp(Op.BinaryOperation("÷", {$1 / $0}))
         learnOp(Op.BinaryOperation("+", +))
-        learnOp(Op.BinaryOperation("-", {$1 - $0}))
+        learnOp(Op.BinaryOperation("−", {$1 - $0}))
         learnOp(Op.UnaryOperation("√", sqrt))
         learnOp(Op.UnaryOperation("sin",{round(1000 * sin($0)) / 1000}))
         learnOp(Op.UnaryOperation("cos",{round(1000 * cos($0)) / 1000}))
@@ -96,7 +108,11 @@ class CalculatorBrain {
                 return (operand,remainingOps)
                 
             case .Variable(let variable):
-                return (variableValues[variable],remainingOps)
+                if let varVal = variableValues[variable] {
+                    return (varVal,remainingOps)
+                }
+            case .Pi():
+                return (M_PI,remainingOps)
             
             case .UnaryOperation(_, let operation):
                 let operandEvaluation = evaluate(remainingOps)
@@ -113,7 +129,6 @@ class CalculatorBrain {
                     }
                 }
             }
-            
         }
         return (nil,ops)
     }
@@ -129,9 +144,14 @@ class CalculatorBrain {
         return evaluate()
     }
     
-    
+
     func pushOperand(symbol: String) -> Double? {
         opStack.append(Op.Variable(symbol))
+        return evaluate()
+    }
+    
+    func pushOperand() -> Double? {
+        opStack.append(Op.Pi())
         return evaluate()
     }
     
@@ -144,5 +164,7 @@ class CalculatorBrain {
     
     func clearStack() {
         opStack = [Op]()
+//        variableValues  = Dictionary<String,Double>()
+        variableValues.removeValueForKey("M")
     }
 }

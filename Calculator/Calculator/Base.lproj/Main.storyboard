@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -61,14 +61,6 @@
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2pS-Hf-7Mb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPH-6L-Csu">
-                                <rect key="frame" x="470" y="218" width="102" height="87"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZp-Nh-nFo">
                                 <rect key="frame" x="28" y="313" width="102" height="88"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="0.90431034482758621" colorSpace="calibratedRGB"/>
@@ -116,14 +108,6 @@
                                 <connections>
                                     <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="c25-XM-R35"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmR-0X-OZU">
-                                <rect key="frame" x="470" y="313" width="102" height="88"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ex-DM-6lq">
                                 <rect key="frame" x="28" y="409" width="102" height="87"/>
@@ -317,6 +301,28 @@
                                 </state>
                                 <connections>
                                     <action selector="appendDigit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jp7-C6-Kje"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EPH-6L-Csu">
+                                <rect key="frame" x="470" y="218" width="102" height="87"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="M">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pushM" destination="BYZ-38-t0r" eventType="touchUpInside" id="idm-9H-wfp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmR-0X-OZU">
+                                <rect key="frame" x="470" y="313" width="102" height="88"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="→M">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="setM" destination="BYZ-38-t0r" eventType="touchUpInside" id="Dam-Bo-CRS"/>
                                 </connections>
                             </button>
                         </subviews>
