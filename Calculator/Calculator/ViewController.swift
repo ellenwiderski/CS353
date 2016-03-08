@@ -57,8 +57,10 @@ class ViewController: UIViewController {
         if userIsInTheMiddleOfTypingANumber {
             enter()
         }
-        if let operation = sender.currentTitle {
-            historyValue += operation
+        if var operation = sender.currentTitle {
+            if operation == "sin(θ)" { operation = "sin" }
+            if operation == "cos(θ)" { operation = "cos" }
+            
             if let result = brain.performOperation(operation) {
                 displayValue = result
                 historyValue = brain.description!
@@ -74,7 +76,6 @@ class ViewController: UIViewController {
     @IBAction func enter() {
         userIsInTheMiddleOfTypingANumber = false
         if display.text! == "π" {
-            print("π")
             if let result = brain.pushOperand() {
                 displayValue = result
                 historyValue += "π"

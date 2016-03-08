@@ -52,37 +52,53 @@ class CalculatorBrain {
     }
 
     
-    private func toInfix(ops: [Op]) ->  (result: String?, remainingOps: [Op])  {
+    private func toInfix(ops: [Op]) ->  (result: String?, remainingOps: [Op], lastOp: String?)  {
         if !ops.isEmpty {
             var remainingOps = ops
             let op = remainingOps.removeLast()
             switch op {
             case .Operand(let operand):
-                return ("\(operand)",remainingOps)
+                return ("\(operand)",remainingOps,nil)
                 
             case .Variable(let variable):
-                return (variable,remainingOps)
+                return (variable,remainingOps,nil)
                 
             case .Pi():
-                return ("π",remainingOps)
+                return ("π",remainingOps,nil)
                 
             case .UnaryOperation(let symbol, _):
                 let operandEvaluation = toInfix(remainingOps)
                 if let operand = operandEvaluation.result {
-                    return ("\(symbol)(\(operand))", operandEvaluation.remainingOps)
+                    return ("\(symbol)(\(operand))", operandEvaluation.remainingOps, symbol)
                 }
                 
             case .BinaryOperation(let symbol, _):
                 let op1Evaluation = toInfix(remainingOps)
-                if let operand1 = op1Evaluation.result {
+                if var operand1 = op1Evaluation.result {
                     let op2Evaluation = toInfix(op1Evaluation.remainingOps)
-                    if let operand2 = op2Evaluation.result {
-                        return ("(\(operand2)\(symbol)\(operand1))",op2Evaluation.remainingOps)
+                    if var operand2 = op2Evaluation.result {
+                        
+                        if symbol == "+" || symbol == "−" {
+                            return ("\(operand2)\(symbol)\(operand1)",op2Evaluation.remainingOps, symbol)
+                        }
+                        
+                        else if symbol == "×" || symbol == "÷" {
+                            if op1Evaluation.lastOp == "+" || op1Evaluation.lastOp == "−" {
+                                operand1 = "(\(operand1))"
+                            }
+                            if op2Evaluation.lastOp == "+" || op2Evaluation.lastOp == "−" {
+                                operand2 = "(\(operand2))"
+                            }
+                            return ("\(operand2)\(symbol)\(operand1)", op2Evaluation.remainingOps, symbol)
+                        }
+                        else {
+                            return ("(\(operand2)\(symbol)\(operand1))", op2Evaluation.remainingOps, symbol)
+                        }
                     }
                 }
             }
         }
-        return ("",ops)
+        return ("",ops,nil)
     }
     
     init() {
@@ -96,6 +112,7 @@ class CalculatorBrain {
         learnOp(Op.UnaryOperation("√", sqrt))
         learnOp(Op.UnaryOperation("sin",{round(1000 * sin($0)) / 1000}))
         learnOp(Op.UnaryOperation("cos",{round(1000 * cos($0)) / 1000}))
+
     }
     
     @nonobjc
