@@ -151,7 +151,12 @@ class CalculatorBrain {
     }
     
     func evaluate() -> Double? {
-        let (result, remainder) = evaluate(opStack)
+        var (result, remainder) = evaluate(opStack)
+        
+        if result == -0.0 {
+            result = 0.0
+        }
+        
         print("\(opStack) = \(result) with \(remainder) left over.")
         return result
     }
