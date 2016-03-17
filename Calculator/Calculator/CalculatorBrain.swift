@@ -151,13 +151,12 @@ class CalculatorBrain {
     }
     
     func evaluate() -> Double? {
-        var (result, remainder) = evaluate(opStack)
+        var (result, _) = evaluate(opStack)
         
         if result == -0.0 {
             result = 0.0
         }
-        
-        print("\(opStack) = \(result) with \(remainder) left over.")
+
         return result
     }
 
@@ -186,7 +185,6 @@ class CalculatorBrain {
     
     func clearStack() {
         opStack = [Op]()
-//        variableValues  = Dictionary<String,Double>()
         variableValues.removeValueForKey("M")
     }
 }

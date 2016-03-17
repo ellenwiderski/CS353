@@ -8,11 +8,7 @@
 
 import UIKit
 
-protocol GraphViewDataSource: class {
-    func functionForFaceView(sender: GraphView) -> String?
-}
-
-class GraphViewController: UIViewController {
+class GraphViewController: UIViewController, GraphViewDataSource {
     
     @IBOutlet weak var graphview: GraphView! {
         didSet {
@@ -26,7 +22,15 @@ class GraphViewController: UIViewController {
             let doubleTap = UITapGestureRecognizer(target: graphview, action: "newCenter:")
             doubleTap.numberOfTapsRequired = 2
             graphview.addGestureRecognizer(doubleTap)
+            
+            graphview.dataSource = self
         }
+    }
+    
+    var cb: CalculatorBrain? = nil
+    
+    func calculatorForGraphView(sender: GraphView) -> CalculatorBrain? {
+        return cb
     }
     
     

@@ -63,11 +63,13 @@ class CalculatorViewController: UIViewController {
             
             if let result = brain.performOperation(operation) {
                 displayValue = result
-                historyValue = brain.description!
             }
             else {
                 displayValue = nil
+                
             }
+            
+            historyValue = brain.description!
         }
     }
     
@@ -127,6 +129,17 @@ class CalculatorViewController: UIViewController {
         set {
             history.text = " \(newValue) "
             userIsInTheMiddleOfTypingANumber = false
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let gvc = destination as? GraphViewController {
+            gvc.cb = brain
         }
     }
 }
