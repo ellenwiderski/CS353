@@ -29,6 +29,7 @@ class GraphView: UIView {
     
     override func drawRect(rect: CGRect) {
         drawer.drawAxesInRect(rect, origin: graphCenter, pointsPerUnit: scale)
+        drawGraph()
     }
     
     func zoom(gesture: UIPinchGestureRecognizer) {
