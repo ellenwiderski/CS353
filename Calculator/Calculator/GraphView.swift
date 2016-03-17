@@ -70,12 +70,24 @@ class GraphView: UIView {
     }
     
     func drawGraph() {
-        var path = UIBezierPath()
-        path.moveToPoint(graphCenter)
+        let path = UIBezierPath()
+        path.moveToPoint(CGPoint(x:0,y:graphCenter.y))
         let cb = dataSource?.calculatorForGraphView(self) ?? nil
         print(cb?.description)
-        let point2 = CGPoint(x: scale + graphCenter.x, y: -scale + graphCenter.y)
-        path.addLineToPoint(point2)
+        
+        let screenWidth = Int(center.x)*2
+        for i in 1...screenWidth {
+            if let cb = cb {
+                let x = CGFloat(i - screenWidth/2) / scale
+                cb.variableValues["M"] = Double(x)
+                //let y = cb.evaluate()
+                let y = x*x
+                print("(\(x),\(y))")
+                let point = CGPoint(x: CGFloat(x*scale + graphCenter.x), y: CGFloat(-y*scale + graphCenter.y))
+                path.addLineToPoint(point)
+                path.moveToPoint(point)
+            }
+        }
         path.closePath()
         UIColor.blackColor().setStroke()
         path.stroke()
