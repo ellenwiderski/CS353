@@ -9,6 +9,8 @@
 import UIKit
 
 class GraphViewController: UIViewController, GraphViewDataSource {
+   
+    @IBOutlet weak var functionLabel: UINavigationItem!
     
     @IBOutlet weak var graphview: GraphView! {
         didSet {
@@ -24,6 +26,8 @@ class GraphViewController: UIViewController, GraphViewDataSource {
             graphview.addGestureRecognizer(doubleTap)
             
             graphview.dataSource = self
+            
+            funcValue = cb?.description ?? ""
         }
     }
     
@@ -33,6 +37,13 @@ class GraphViewController: UIViewController, GraphViewDataSource {
         return cb
     }
     
-    
+    var funcValue: String {
+        get {
+            return functionLabel.title!
+        }
+        set {
+            functionLabel.title = "f(x) = \(newValue) "
+        }
+    }
     
 }
