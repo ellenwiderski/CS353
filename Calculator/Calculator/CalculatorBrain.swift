@@ -157,7 +157,6 @@ class CalculatorBrain {
             result = 0.0
         }
 
-//        print("\(opStack) = \(result) with \(remainder) left over.")
         return result
     }
 
@@ -186,7 +185,6 @@ class CalculatorBrain {
     
     func clearStack() {
         opStack = [Op]()
-//        variableValues  = Dictionary<String,Double>()
         variableValues.removeValueForKey("M")
     }
 }

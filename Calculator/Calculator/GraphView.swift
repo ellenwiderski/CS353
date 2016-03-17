@@ -73,7 +73,6 @@ class GraphView: UIView {
         let path = UIBezierPath()
         path.moveToPoint(CGPoint(x:0,y:graphCenter.y))
         let cb = dataSource?.calculatorForGraphView(self) ?? nil
-        print(cb?.description)
         
         let screenWidth = Int(center.x)*2
         for i in 1...screenWidth {
@@ -82,8 +81,6 @@ class GraphView: UIView {
                 cb.variableValues["M"] = Double(x)
                 if let yval = cb.evaluate() {
                     let y = CGFloat(yval)
-    //                let y = x*x
-                    print("(\(x),\(y))")
                     let point = CGPoint(x: CGFloat(x*scale + graphCenter.x), y: CGFloat(-y*scale + graphCenter.y))
                     path.addLineToPoint(point)
                     path.moveToPoint(point)

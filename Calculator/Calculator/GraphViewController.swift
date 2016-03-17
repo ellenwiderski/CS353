@@ -27,11 +27,7 @@ class GraphViewController: UIViewController, GraphViewDataSource {
         }
     }
     
-    var cb: CalculatorBrain? = nil {
-        didSet {
-            print("gvc got cb")
-        }
-    }
+    var cb: CalculatorBrain? = nil
     
     func calculatorForGraphView(sender: GraphView) -> CalculatorBrain? {
         return cb

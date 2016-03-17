@@ -63,11 +63,13 @@ class CalculatorViewController: UIViewController {
             
             if let result = brain.performOperation(operation) {
                 displayValue = result
-                historyValue = brain.description!
             }
             else {
                 displayValue = nil
+                
             }
+            
+            historyValue = brain.description!
         }
     }
     
