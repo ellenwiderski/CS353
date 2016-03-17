@@ -80,12 +80,14 @@ class GraphView: UIView {
             if let cb = cb {
                 let x = CGFloat(i - screenWidth/2) / scale
                 cb.variableValues["M"] = Double(x)
-                //let y = cb.evaluate()
-                let y = x*x
-                print("(\(x),\(y))")
-                let point = CGPoint(x: CGFloat(x*scale + graphCenter.x), y: CGFloat(-y*scale + graphCenter.y))
-                path.addLineToPoint(point)
-                path.moveToPoint(point)
+                if let yval = cb.evaluate() {
+                    let y = CGFloat(yval)
+    //                let y = x*x
+                    print("(\(x),\(y))")
+                    let point = CGPoint(x: CGFloat(x*scale + graphCenter.x), y: CGFloat(-y*scale + graphCenter.y))
+                    path.addLineToPoint(point)
+                    path.moveToPoint(point)
+                }
             }
         }
         path.closePath()
