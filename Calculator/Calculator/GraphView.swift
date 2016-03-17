@@ -8,9 +8,15 @@
 
 import UIKit
 
+protocol GraphViewDataSource: class {
+    func calculatorForGraphView(sender: GraphView) -> CalculatorBrain?
+}
+
 @IBDesignable
 class GraphView: UIView {
     var drawer = AxesDrawer(color: UIColor.blackColor())
+    
+    weak var dataSource: GraphViewDataSource?
     
     @IBInspectable
     var translation: CGPoint = CGPoint(x: 0.0, y: 0.0) { didSet { setNeedsDisplay() } }
@@ -66,8 +72,10 @@ class GraphView: UIView {
     func drawGraph() {
         var path = UIBezierPath()
         path.moveToPoint(graphCenter)
-        path.addLineToPoint(CGPoint(x:5,y:5))
-        path.addLineToPoint(CGPoint(x:200,y:200))
+        let cb = dataSource?.calculatorForGraphView(self) ?? nil
+        print(cb?.description)
+        let point2 = CGPoint(x: scale + graphCenter.x, y: -scale + graphCenter.y)
+        path.addLineToPoint(point2)
         path.closePath()
         UIColor.blackColor().setStroke()
         path.stroke()

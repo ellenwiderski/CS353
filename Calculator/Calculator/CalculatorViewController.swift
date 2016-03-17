@@ -32,6 +32,7 @@ class CalculatorViewController: UIViewController {
     }
     
     @IBAction func appendDigit(sender: UIButton) {
+        print(sender)
         let digit = sender.currentTitle!
         if userIsInTheMiddleOfTypingANumber {
             display.text = display.text! + digit
@@ -127,6 +128,17 @@ class CalculatorViewController: UIViewController {
         set {
             history.text = " \(newValue) "
             userIsInTheMiddleOfTypingANumber = false
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        var destination = segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let gvc = destination as? GraphViewController {
+            gvc.cb = brain
         }
     }
 }
