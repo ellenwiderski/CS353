@@ -17,7 +17,9 @@ class GraphView: UIView {
     
     var graphCenter: CGPoint {
         if translation == CGPoint(x: 0.0, y: 0.0) {
-            return convertPoint(center, fromView: superview)
+            let cntr = convertPoint(center, fromView: superview)
+            print("initial = \(cntr)")
+            return cntr
         }
         else {
             return CGPoint(x: center.x + translation.x, y: center.y + translation.y)
@@ -55,7 +57,10 @@ class GraphView: UIView {
     
     func newCenter(gesture: UITapGestureRecognizer) {
         if gesture.state == .Ended {
-            print(gesture.locationInView(superview))
+            let taploc = gesture.locationInView(superview)
+            let newGraphCenter: CGPoint = CGPoint(x: taploc.x - center.x, y: taploc.y - center.y)
+            translation.x = newGraphCenter.x
+            translation.y = newGraphCenter.y
         }
     }
     
