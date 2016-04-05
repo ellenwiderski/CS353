@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -32,13 +32,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLJ-yc-nCW">
                                 <rect key="frame" x="20" y="31" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7R-MW-FlG">
                                 <rect key="frame" x="20" y="69" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jig-0N-BWa">
@@ -64,13 +64,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="Company" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FnK-Zc-VGK">
                                 <rect key="frame" x="507" y="375" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="800" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqv-tb-08m">
                                 <rect key="frame" x="507" y="346" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="200" verticalCompressionResistancePriority="700" image="bmiller" translatesAutoresizingMaskIntoConstraints="NO" id="DdR-tD-oEv">
@@ -142,6 +142,7 @@
                                 <exclude reference="PFC-Kl-vZj"/>
                                 <exclude reference="XOb-jt-dby"/>
                                 <exclude reference="wvn-35-3ii"/>
+                                <exclude reference="bph-Ce-9VZ"/>
                                 <exclude reference="3BR-4c-4at"/>
                                 <exclude reference="EiH-jW-dyv"/>
                                 <exclude reference="fhn-sv-aSD"/>
@@ -149,7 +150,6 @@
                                 <exclude reference="Hmp-hO-u5T"/>
                                 <exclude reference="Ylr-ia-4k9"/>
                                 <exclude reference="hWg-Ja-w8f"/>
-                                <exclude reference="bph-Ce-9VZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
@@ -159,6 +159,8 @@
                                 <include reference="XOb-jt-dby"/>
                                 <exclude reference="Xod-D5-A9i"/>
                                 <include reference="wvn-35-3ii"/>
+                                <exclude reference="X9t-eC-qZ5"/>
+                                <include reference="bph-Ce-9VZ"/>
                                 <include reference="3BR-4c-4at"/>
                                 <exclude reference="8kG-z7-1zV"/>
                                 <include reference="EiH-jW-dyv"/>
@@ -171,8 +173,6 @@
                                 <include reference="Ylr-ia-4k9"/>
                                 <include reference="hWg-Ja-w8f"/>
                                 <exclude reference="ugf-By-lll"/>
-                                <exclude reference="X9t-eC-qZ5"/>
-                                <include reference="bph-Ce-9VZ"/>
                             </mask>
                         </variation>
                     </view>
