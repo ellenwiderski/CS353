@@ -36,7 +36,30 @@ class TweetTableViewCell: UITableViewCell
                 for _ in tweet.media {
                     tweetTextLabel.text! += " 📷"
                 }
+            
+            
+                let attributedTweetText = NSMutableAttributedString(string:tweetTextLabel.text!)
+                
+                let hashtagColor = UIColor(red: 17.0/255.0, green: 190.0/255.0, blue: 247.0/255.0, alpha: 1.0)
+                let urlColor = UIColor(red: 161.0/255.0, green: 129.0/255.0, blue: 240.0/255.0, alpha: 1.0)
+                let userColor = UIColor(red: 16.0/255.0, green: 232.0/255.0, blue: 135.0/255.0, alpha: 1.0)
+                
+                for hashtag in tweet.hashtags {
+                    attributedTweetText.addAttribute(NSForegroundColorAttributeName, value: hashtagColor , range: hashtag.nsrange)
+                }
+                
+                for url in tweet.urls {
+                    attributedTweetText.addAttribute(NSForegroundColorAttributeName, value: urlColor , range: url.nsrange)
+                }
+                
+                for user in tweet.userMentions {
+                    attributedTweetText.addAttribute(NSForegroundColorAttributeName, value: userColor , range: user.nsrange)
+                }
+                
+                
+                tweetTextLabel?.attributedText = attributedTweetText
             }
+            
             
             tweetScreenNameLabel?.text = "\(tweet.user)" // tweet.user.description
             

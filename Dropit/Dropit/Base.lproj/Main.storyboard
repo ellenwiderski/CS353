@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Dropit View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="DropitViewController" customModule="Dropit" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dor-Dz-oab" customClass="BezierPathsView" customModule="Dropit" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="592"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="LXa-vj-FCu" appends="YES" id="2xG-La-Q59"/>
+                                    <outletCollection property="gestureRecognizers" destination="4Ee-ho-ELW" appends="YES" id="qMj-5a-FwZ"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dor-Dz-oab" secondAttribute="bottom" constant="8" symbolic="YES" id="aK7-3y-ImV"/>
+                            <constraint firstAttribute="trailing" secondItem="dor-Dz-oab" secondAttribute="trailing" id="f7A-l8-BN5"/>
+                            <constraint firstItem="dor-Dz-oab" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="iSA-7U-nsa"/>
+                            <constraint firstItem="dor-Dz-oab" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ngL-nt-qSa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="gameView" destination="dor-Dz-oab" id="owY-D1-E7K"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="LXa-vj-FCu">
+                    <connections>
+                        <action selector="drop:" destination="BYZ-38-t0r" id="J6I-2j-1T2"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="4Ee-ho-ELW">
+                    <connections>
+                        <action selector="grabDrop:" destination="BYZ-38-t0r" id="wec-gq-m0R"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="380" y="337"/>
+        </scene>
+    </scenes>
+</document>

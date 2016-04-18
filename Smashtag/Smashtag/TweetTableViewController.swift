@@ -111,7 +111,6 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
         let cell = tableView.dequeueReusableCellWithIdentifier(Storyboard.CellReuseIdentifier, forIndexPath: indexPath) as! TweetTableViewCell
 
         cell.tweet = tweets[indexPath.section][indexPath.row]
-
         return cell
     }
 
@@ -150,13 +149,23 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
+        
+        var destination =  segue.destinationViewController as? UIViewController
+        if let navCon = destination as? UINavigationController {
+            destination = navCon.visibleViewController
+        }
+        
+        if let mtvc = destination as? MentionsTableViewController {
+            if let tweetCell = sender as? TweetTableViewCell {
+                mtvc.tweet = tweetCell.tweet
+            }
+        }
     }
-    */
 }
