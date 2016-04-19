@@ -38,6 +38,7 @@ class MentionsTableViewCell: UITableViewCell {
         }
         else if section == "Images" {
             contentImageView.image = UIImage(data: NSData(contentsOfURL: NSURL(string: content!)!)!)
+            contentImageView.contentMode = UIViewContentMode.ScaleAspectFit
         }
         else if section == "Urls" {
             urlLabel.text = nil

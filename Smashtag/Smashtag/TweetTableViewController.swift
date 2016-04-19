@@ -157,9 +157,9 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        var destination =  segue.destinationViewController as? UIViewController
+        var destination =  segue.destinationViewController as UIViewController
         if let navCon = destination as? UINavigationController {
-            destination = navCon.visibleViewController
+            destination = navCon.visibleViewController!
         }
         
         if let mtvc = destination as? MentionsTableViewController {

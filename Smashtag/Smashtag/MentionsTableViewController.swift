@@ -39,6 +39,8 @@ class MentionsTableViewController: UITableViewController {
             index += 1
         }
         
+        
+        
     }
     
     var tweet : Tweet? = nil
@@ -161,6 +163,12 @@ class MentionsTableViewController: UITableViewController {
         }
     }
  
+    @IBAction func urlTap(sender: UITapGestureRecognizer) {
+        if let mentionCell = sender.view as? MentionsTableViewCell {
+            let url = NSURL(string: mentionCell.content!)
+            UIApplication.sharedApplication().openURL(url!)
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -209,6 +217,11 @@ class MentionsTableViewController: UITableViewController {
         if let ttvc = destination as? TweetTableViewController {
             if let mentionCell = sender as? MentionsTableViewCell {
                 ttvc.searchText = mentionCell.content
+            }
+        }
+        else if let ivc = destination as? ImageViewController {
+            if let mentionCell = sender as? MentionsTableViewCell {
+                ivc.url = NSURL(string: mentionCell.content!)
             }
         }
     }

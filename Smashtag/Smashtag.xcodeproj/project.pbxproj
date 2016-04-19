@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11132FDB1CC59859003837FA /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11132FDA1CC59859003837FA /* ImageViewController.swift */; };
 		1151934E1CB69C5F0018EBEB /* MentionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1151934D1CB69C5F0018EBEB /* MentionsTableViewCell.swift */; };
 		11CAC96D1CB401FF0023CA35 /* MentionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11CAC96C1CB401FF0023CA35 /* MentionsTableViewController.swift */; };
 		EC6876171A898EF4006B5FDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6876161A898EF4006B5FDB /* AppDelegate.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11132FDA1CC59859003837FA /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		1151934D1CB69C5F0018EBEB /* MentionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewCell.swift; sourceTree = "<group>"; };
 		11CAC96C1CB401FF0023CA35 /* MentionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MentionsTableViewController.swift; sourceTree = "<group>"; };
 		EC6876111A898EF4006B5FDB /* Smashtag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smashtag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				EC68761A1A898EF4006B5FDB /* Main.storyboard */,
+				11132FDA1CC59859003837FA /* ImageViewController.swift */,
 				11CAC96C1CB401FF0023CA35 /* MentionsTableViewController.swift */,
 				1151934D1CB69C5F0018EBEB /* MentionsTableViewCell.swift */,
 				EC6876361A898F4D006B5FDB /* TweetTableViewController.swift */,
@@ -245,6 +248,7 @@
 			files = (
 				1151934E1CB69C5F0018EBEB /* MentionsTableViewCell.swift in Sources */,
 				11CAC96D1CB401FF0023CA35 /* MentionsTableViewController.swift in Sources */,
+				11132FDB1CC59859003837FA /* ImageViewController.swift in Sources */,
 				EC6876171A898EF4006B5FDB /* AppDelegate.swift in Sources */,
 				EC68763F1A898FC6006B5FDB /* TwitterRequest.swift in Sources */,
 				EC6876401A898FC6006B5FDB /* User.swift in Sources */,
