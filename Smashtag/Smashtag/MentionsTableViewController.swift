@@ -225,4 +225,9 @@ class MentionsTableViewController: UITableViewController {
             }
         }
     }
+    
+    override func willAnimateRotationToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval)
+    {
+        self.tableView.reloadData()
+    }
 }
