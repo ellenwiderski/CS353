@@ -221,7 +221,7 @@ class MentionsTableViewController: UITableViewController {
         }
         else if let ivc = destination as? ImageViewController {
             if let mentionCell = sender as? MentionsTableViewCell {
-                ivc.url = NSURL(string: mentionCell.content!)
+                ivc.imageURL = NSURL(string: mentionCell.content!)
             }
         }
     }

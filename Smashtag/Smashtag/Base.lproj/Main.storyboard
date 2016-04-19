@@ -254,27 +254,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NMo-aq-VzV">
-                                <rect key="frame" x="20" y="64" width="560" height="516"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Shf-ki-05l">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yNi-er-zHL">
+                                        <rect key="frame" x="290" y="322" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="yNi-er-zHL" secondAttribute="bottom" constant="194" id="MSH-pB-b0N"/>
+                                    <constraint firstItem="yNi-er-zHL" firstAttribute="centerX" secondItem="Shf-ki-05l" secondAttribute="centerX" id="OlZ-wE-r7s"/>
+                                    <constraint firstAttribute="trailing" secondItem="yNi-er-zHL" secondAttribute="trailing" constant="290" id="ioH-DZ-d8X"/>
+                                    <constraint firstItem="yNi-er-zHL" firstAttribute="top" secondItem="Shf-ki-05l" secondAttribute="top" constant="322" id="qzS-Pq-oa1"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="NMo-aq-VzV" firstAttribute="leading" secondItem="a5O-4Z-BlG" secondAttribute="leadingMargin" id="0yB-zD-orH"/>
-                            <constraint firstItem="NMo-aq-VzV" firstAttribute="top" secondItem="uBK-j3-sIm" secondAttribute="bottom" id="9VP-hs-CxU"/>
-                            <constraint firstItem="NMo-aq-VzV" firstAttribute="trailing" secondItem="a5O-4Z-BlG" secondAttribute="trailingMargin" id="Pey-8H-B54"/>
-                            <constraint firstItem="NMo-aq-VzV" firstAttribute="top" secondItem="uBK-j3-sIm" secondAttribute="bottom" id="kel-V7-sum"/>
-                            <constraint firstAttribute="bottom" secondItem="NMo-aq-VzV" secondAttribute="bottom" constant="20" symbolic="YES" id="rZt-xz-oJ5"/>
+                            <constraint firstItem="Shf-ki-05l" firstAttribute="bottom" secondItem="6NW-1u-77c" secondAttribute="top" id="nhH-e9-eeD"/>
+                            <constraint firstAttribute="trailing" secondItem="Shf-ki-05l" secondAttribute="trailing" id="piM-pZ-VOW"/>
+                            <constraint firstItem="Shf-ki-05l" firstAttribute="top" secondItem="uBK-j3-sIm" secondAttribute="bottom" id="tom-PD-OVB"/>
+                            <constraint firstItem="Shf-ki-05l" firstAttribute="leading" secondItem="a5O-4Z-BlG" secondAttribute="leading" id="vXe-cx-WEE"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="9VP-hs-CxU"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="SZM-JC-KrZ"/>
                     <connections>
-                        <outlet property="imageView" destination="NMo-aq-VzV" id="sXv-Jp-55E"/>
+                        <outlet property="scrollView" destination="Shf-ki-05l" id="WtI-Iy-fLn"/>
+                        <outlet property="spinner" destination="yNi-er-zHL" id="bU7-Xp-xs0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8aA-ZO-116" userLabel="First Responder" sceneMemberID="firstResponder"/>
