@@ -15,6 +15,7 @@
 		1155D4611CDFFFBB00869668 /* minesweeperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155D4601CDFFFBB00869668 /* minesweeperTests.swift */; };
 		1155D46C1CDFFFBB00869668 /* minesweeperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155D46B1CDFFFBB00869668 /* minesweeperUITests.swift */; };
 		1155D47A1CE001ED00869668 /* MinesweeperBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1155D4791CE001ED00869668 /* MinesweeperBrain.swift */; };
+		11A7CD821CE1D884005B761F /* highScoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A7CD811CE1D884005B761F /* highScoreTableViewController.swift */; };
 		11D58CC01CE191A700C56F2C /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D58CBF1CE191A700C56F2C /* mainViewController.swift */; };
 		11D58CC21CE193C000C56F2C /* MinesweeperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11D58CC11CE193C000C56F2C /* MinesweeperView.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		1155D46B1CDFFFBB00869668 /* minesweeperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = minesweeperUITests.swift; sourceTree = "<group>"; };
 		1155D46D1CDFFFBB00869668 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1155D4791CE001ED00869668 /* MinesweeperBrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperBrain.swift; sourceTree = "<group>"; };
+		11A7CD811CE1D884005B761F /* highScoreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = highScoreTableViewController.swift; sourceTree = "<group>"; };
 		11D58CBF1CE191A700C56F2C /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		11D58CC11CE193C000C56F2C /* MinesweeperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinesweeperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 			children = (
 				1155D44B1CDFFFBB00869668 /* AppDelegate.swift */,
 				1155D44F1CDFFFBB00869668 /* Main.storyboard */,
+				11A7CD811CE1D884005B761F /* highScoreTableViewController.swift */,
 				1155D44D1CDFFFBB00869668 /* MinesweeperViewController.swift */,
 				11D58CC11CE193C000C56F2C /* MinesweeperView.swift */,
 				11D58CBF1CE191A700C56F2C /* mainViewController.swift */,
@@ -270,6 +273,7 @@
 			files = (
 				1155D44E1CDFFFBB00869668 /* MinesweeperViewController.swift in Sources */,
 				1155D47A1CE001ED00869668 /* MinesweeperBrain.swift in Sources */,
+				11A7CD821CE1D884005B761F /* highScoreTableViewController.swift in Sources */,
 				1155D44C1CDFFFBB00869668 /* AppDelegate.swift in Sources */,
 				11D58CC01CE191A700C56F2C /* mainViewController.swift in Sources */,
 				11D58CC21CE193C000C56F2C /* MinesweeperView.swift in Sources */,

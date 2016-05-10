@@ -12,6 +12,10 @@ protocol MineViewDataSource: class {
     func widthForMineView(sender: MinesweeperView) -> Int?
     func heightForMineView(sender: MinesweeperView) -> Int?
     func numMinesForMineView(sender: MinesweeperView) -> Int?
+    func minesLeft(mines: Int)
+    func lost()
+    func won()
+    func startTime()
 }
 
 class MinesweeperView: UIView {
@@ -68,7 +72,7 @@ class MinesweeperView: UIView {
         let col = mineButtons.indexOf { $0.contains(button!) }!
         let row = mineButtons[col].indexOf(button!)!
         if brain.zones[row][col].state {
-            
+            dataSource!.lost()
             for i in 0..<brain.zones.count {
                 for j in 0..<brain.zones[i].count {
                     if brain.zones[i][j].state && !brain.zones[i][j].marked {
@@ -83,7 +87,12 @@ class MinesweeperView: UIView {
             }
             
         } else {
+            
+            dataSource!.startTime()
             brain.openZone(brain.zones[row][col])
+            if didWin() {
+                dataSource!.won()
+            }
             
             for i in 0..<brain.zones.count {
                 for j in 0..<brain.zones[i].count {
@@ -113,14 +122,30 @@ class MinesweeperView: UIView {
                 brain.zones[row][col].marked = false
                 button!.setTitle("", forState: UIControlState.Normal)
                 brain.minesLeft += 1
+                dataSource!.minesLeft(brain.minesLeft)
             } else {
                 brain.zones[row][col].marked = true
                 button!.setTitle("🚩", forState: UIControlState.Normal)
                 
                 brain.minesLeft -= 1
-            }
-            if brain.minesLeft == 0 {
+                dataSource!.minesLeft(brain.minesLeft)
+                if didWin() {
+                    dataSource!.won()
+                }
             }
         }
+    }
+    
+    func didWin() -> Bool{
+        var won = true
+        for col in brain.zones {
+            for elm in col {
+                if elm.marked && !elm.state || !elm.marked && elm.state {
+                    won = false
+                    break
+                }
+            }
+        }
+        return won
     }
 }
